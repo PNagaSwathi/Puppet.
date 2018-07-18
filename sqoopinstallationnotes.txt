@@ -1,0 +1,33 @@
+1) first download the tar from the sqoop website:http://ftp.wayne.edu/apache/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+
+2) untar the tar ball and move it to the /usr/lib/sqoop directory
+# tar -xvf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+# mv sqoop-1.4.7.bin__hadoop-2.6.0 /usr/lib/sqoop
+# mv sqoop-env-template.sh sqoop-env.sh
+
+3) Now that we have all the things that are needed for the sqoop to work let us set the environment so that sqoop 
+coordinates with the other services like hadoop. This configuration resides in a file under the conf with the name 
+sqoop-env.sh
+
+add the below information to the file.
+export HADOOP_COMMON_HOME=/root/hadoop-2.9.1 ---> this is the hadoop path specific to ur environment
+export HADOOP_MAPRED_HOME=/root/hadoop-2.9.1
+
+4) Set the environment varibles as well in the /etc/environment
+export SQOOP_HOME=/usr/lib/sqoop
+export SQOOP_CONF_DIR=$SQOOP_HOME/conf
+
+5) Also set the PATH variable to point to the sqoop binaries in the /etc/profile
+export PATH=$PATH:$SQOOP_HOME/bin:$HADOOP_HOME/bin
+
+
+Now we are ready to go with the sqoop. Test whether everything is working by the below command
+# sqoop version
+
+
+Now we need to establish connectivity between sqoop and mysql database so that we can try some scenarios. for that we need to donload the mysql dirvers
+
+
+
+
+
